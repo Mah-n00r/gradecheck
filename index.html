@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Checking App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        input, button {
+            margin-top: 10px;
+            padding: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Grade Checking App</h2>
+    <form id="gradeForm" onsubmit="return checkGrade()">
+        <label for="percentage">Enter Percentage:</label>
+        <input type="number" id="percentage" name="percentage" min="0" max="100" required>
+        <button type="submit">Check Grade</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function checkGrade() {
+            var percentageInput = document.getElementById('percentage').value;
+            var resultElement = document.getElementById('result');
+            var grade;
+
+            if (percentageInput >= 80) {
+                grade = 'A+';
+            } else if (percentageInput >= 70) {
+                grade = 'A';
+            } else if (percentageInput >= 60) {
+                grade = 'B';
+            } else if (percentageInput >= 50) {
+                grade = 'C';
+            } else {
+                grade = 'F';
+            }
+
+            resultElement.innerHTML = 'Your grade is: ' + grade;
+
+            return false;
+        }
+    </script>
+</body>
+</html>
